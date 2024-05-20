@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wVOGwun7RBGQRsYXdfm7G64t7QYfPRN2OACtE7BcPHU=",
+  "Source": "ScanDocuments",
+  "BasePath": "_content/ScanDocuments",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
