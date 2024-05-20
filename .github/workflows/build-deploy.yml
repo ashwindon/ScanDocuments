@@ -16,7 +16,7 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Install dependencies
-        run: dotnet restore ScanDocuments/ScanDocuments.csproj
+        run: dotnet restore ScanDocuments.csproj
 
       - name: Build
-        run: dotnet build ScanDocuments/ScanDocuments.csproj --configuration Release --no-restore
+        run: dotnet build ScanDocuments.csproj --configuration Release --no-restore
