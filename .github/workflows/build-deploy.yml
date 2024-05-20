@@ -1,4 +1,4 @@
-name : simple-deploy
+name: simple-deploy
 
 on:
   workflow_dispatch:
@@ -8,14 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET core
-    - uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 8.0.x
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
 
-    - name: Instll dependencies
-    run: dotnet restore ScanDocuments/ScanDocuments.csproj
+      - name: Install dependencies
+        run: dotnet restore ScanDocuments/ScanDocuments.csproj
 
-    - name: Build
-    run: dotnet build ScanDocuments/ScanDocuments.csproj --configuration Release --no-restore
+      - name: Build
+        run: dotnet build ScanDocuments/ScanDocuments.csproj --configuration Release --no-restore
