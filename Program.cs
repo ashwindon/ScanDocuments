@@ -23,6 +23,8 @@ builder.Services.AddScoped<IContentFilter, ContentFilter>();
 var app = builder.Build();
 
 app.UseRouting();
+//run this app on http://0.0.0.0/5152
+
 // app.UseAuthentication();
 // app.UseAuthorization();
 Console.WriteLine("Hello World!");
@@ -35,4 +37,4 @@ app.MapPost("/scandocuments", async (HttpContext context, IFormFileCollection fi
     return Results.Ok(results);
 }).DisableAntiforgery();
 
-app.Run();
+app.Run("http://0.0.0.0:5152");
