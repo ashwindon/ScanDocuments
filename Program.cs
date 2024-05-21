@@ -25,6 +25,9 @@ var app = builder.Build();
 app.UseRouting();
 // app.UseAuthentication();
 // app.UseAuthorization();
+Console.WriteLine("Hello World!");
+app.MapGet("/", () => "Hello World!");
+
 app.MapPost("/scandocuments", async (HttpContext context, IFormFileCollection files, IScanService scanService) =>
 {
     var fileList = files.ToList();
