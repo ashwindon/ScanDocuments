@@ -86,7 +86,8 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 # Expose the port that your API is listening on
-EXPOSE 5152
+EXPOSE 8080
+
 # EXPOSE 5001
 # ENV ASPNETCORE_HTTP_PORT=https://*:5000
 # ENV ASPNETCORE_URLS=https://*:5000
