@@ -69,7 +69,7 @@
 # ```
 #
 # Use the official .NET SDK image to build the app
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
@@ -81,12 +81,14 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 
 # Expose the port that your API is listening on
-EXPOSE 80
-
+EXPOSE 5000
+EXPOSE 5001
+ENV ASPNETCORE_HTTP_PORT=https://*:5001;http://*:5000
+ENV ASPNETCORE_URLS=http://*:5000
 # Define the entry point for the container
 ENTRYPOINT ["dotnet", "ScanDocuments.dll"]
