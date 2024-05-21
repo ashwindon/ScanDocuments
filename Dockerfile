@@ -88,7 +88,7 @@ COPY --from=build-env /app/out .
 # Expose the port that your API is listening on
 EXPOSE 5000
 EXPOSE 5001
-ENV ASPNETCORE_HTTP_PORT=https://*:5001;http://*:5000
+ENV ASPNETCORE_HTTP_PORT=https://*:5000
 ENV ASPNETCORE_URLS=https://*:5000
 # Define the entry point for the container
 ENTRYPOINT ["dotnet", "ScanDocuments.dll"]
