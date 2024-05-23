@@ -68,7 +68,7 @@
 # docker volume rm $(docker volume ls -q)
 # ```
 #
-# Use the official .NET SDK image to build the app
+#Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
@@ -89,7 +89,7 @@ COPY --from=build-env /app/out .
 EXPOSE 8080
 
 # EXPOSE 5001
-# ENV ASPNETCORE_HTTP_PORT=https://*:5000
+#ENV ASPNETCORE_HTTP_PORT=http://*:5152
 # ENV ASPNETCORE_URLS=https://*:5000
 # Define the entry point for the container
 ENTRYPOINT ["dotnet", "ScanDocuments.dll"]

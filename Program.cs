@@ -37,4 +37,5 @@ app.MapPost("/scandocuments", async (HttpContext context, IFormFileCollection fi
     return Results.Ok(results);
 }).DisableAntiforgery();
 
-app.Run("http://0.0.0.0:8080");
+app.Run();
+//app.Run("http://0.0.0.0:8080");
