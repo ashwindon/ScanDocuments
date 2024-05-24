@@ -86,6 +86,8 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 
 # Expose the port that your API is listening on
+EXPOSE 5152
+EXPOSE 8080
 EXPOSE 80
 
 # EXPOSE 5001
