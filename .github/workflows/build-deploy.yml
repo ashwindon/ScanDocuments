@@ -53,4 +53,5 @@ jobs:
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           name: scan-documents
+          ports: '8080'
           location: 'east us'
