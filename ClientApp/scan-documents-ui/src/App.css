@@ -1,0 +1,184 @@
+/* Reset + Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #000; /* pitch black */
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 
+  Keyframe for left-to-right shimmer 
+  (used by the left section)
+*/
+@keyframes whiteReflectionLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* 
+  Keyframe for right-to-left shimmer 
+  (used by the right section)
+*/
+@keyframes whiteReflectionRightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/* Left Section */
+.left-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #000;
+  overflow: hidden; 
+}
+
+.left-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* Left-to-right animation keyframe */
+  animation: whiteReflectionLeftToRight 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.right-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* Right-to-left animation keyframe */
+  animation: whiteReflectionRightToLeft 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Text content */
+.right-section h2,
+.right-section p,
+.left-section p {
+  position: relative; 
+  color: #fff;
+}
+
+/* Dropzone */
+.dropzone {
+  width: 80%;
+  min-height: 150px;
+  border: 3px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s;
+}
+
+.dropzone:hover {
+  border-color: #fff;
+}
+
+.dropzone-active {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.dropzone p {
+  color: #fff;
+  text-align: center;
+}
+
+/* Analyze Button */
+.analyze-button {
+  background-color: transparent;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px #fff, 0 0 12px #fff;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.analyze-button:not(:disabled):hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 12px #fff, 0 0 20px #fff;
+}
+
+.analyze-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  border-color: #666;
+}
+
+/* Analysis Box */
+.analysis-box {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 500px;
+  color: #fff;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
